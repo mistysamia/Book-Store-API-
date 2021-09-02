@@ -10,10 +10,10 @@ document.getElementById('search').addEventListener('click', function () {
     const errorDiv = document.getElementById('error');
     while (errorDiv.firstChild)
         errorDiv.removeChild(errorDiv.lastChild);
-    
+
     // Spinning start
     const spin = document.getElementById('spin');
-    spin.style.display="block";
+    spin.style.display = "block";
 
     if (bookName === "") {
         alert("Please Enter Input Correctly");
@@ -38,7 +38,7 @@ const BookSet = bookName => {
 
     //Spinning stop
     const spin = document.getElementById('spin');
-    spin.style.display="none";
+    spin.style.display = "none";
 
     if (bookName["docs"].length === 0) {
         const errorDiv = document.getElementById('error');
@@ -70,37 +70,38 @@ const BookSet = bookName => {
             const cardInnerDetails = document.createElement('div');
             cardInnerDetails.className = 'card-body';
             let bookAbout = "";
+
+            /// Unfortunately this time ternary options is not working 
+            /* let url = "https://covers.openlibrary.org/b/id/";
+            bookAbout += `
+                 <img src="${url + element.cover_i+'-M.jpg' ? url + element.cover_i+'-M.jpg' :Images/noImage.jpg}" 
+                   class="img-thumbnail mt-3" > 
+                 `;*/
             if (element.cover_i) {
                 let url = "https://covers.openlibrary.org/b/id/";
                 bookAbout += `
-                 <img src="${url + element.cover_i}-M.jpg" class="img-thumbnail mt-3" >
-                `;
+                     <img src="${url + element.cover_i}-M.jpg" class="img-thumbnail mt-3" >
+                    `;
             }
             else {
                 bookAbout += `
-                <img src="Images/noImage.jpg" class="img-thumbnail mt-3" >
-                `
+                    <img src="Images/noImage.jpg" class="img-thumbnail mt-3" >
+                    `
             }
             bookAbout += `
-            <h5 class ="card-title title"> ${element.title}</h5>
+            <h5 class ="card-title title">${element.title ? element.title : "Not Available"}</h5>
             `;
             bookAbout += `
-            <h6 class ="card-text author_name">By ${element.author_name}</h6>
+            <h6 class ="card-text author_name">${element.author_name ? 'By '+element.author_name : "Not Available"}</h6>
             `
             bookAbout += `
-            <h6 class ="card-text publishers">Publishers : ${element.publisher}</h6>
+            <h6 class ="card-text publishers">Publishers : ${element.publisher ? element.publisher : "Not Available"}/h6>
             `
-            if (element.publish_year) {
-                bookAbout += `
-                <h6 class="publishedYear">Published Year : ${element.publish_year[0]}</h6>
+            bookAbout += `
+                <h6 class="publishedYear">First Published Year : ${element.first_publish_year ? element.first_publish_year : "Not Available"}</h6>
                 `;
-            }
-            else {
-                bookAbout += `
-                <h6>Publishing Year : Not Available}</h6>
-                `
-            }
-            
+
+
             // Adding to the div
             cardInnerDetails.innerHTML = bookAbout;
             BookEachCard.appendChild(cardInnerDetails);
