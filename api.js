@@ -95,7 +95,7 @@ const BookSet = bookName => {
             <h6 class ="card-text author_name">${element.author_name ? 'By '+element.author_name : "Not Available"}</h6>
             `
             bookAbout += `
-            <h6 class ="card-text publishers">Publishers : ${element.publisher ? element.publisher : "Not Available"}/h6>
+            <h6 class ="card-text publishers">Publishers : ${element.publisher ? element.publisher : "Not Available"}</h6>
             `
             bookAbout += `
                 <h6 class="publishedYear">First Published Year : ${element.first_publish_year ? element.first_publish_year : "Not Available"}</h6>
