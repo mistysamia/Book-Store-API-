@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS and JS File added  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- Css File Added -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <!-- Font Awesome link -->
+    <script src="https://kit.fontawesome.com/87ffe8273c.js" crossorigin="anonymous"></script>
+
+    <!-- Icon Added-->
+    <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
+    <title>Book Store</title>
+
+
+</head>
+
+<body>
+    <section class="container">
+        <section class="text-center">
+
+            <h1 class="my-5 " id="headings"> Book Store</h1>
+
+            <!-- Input Field -->
+            <article class="input-group InputField ">
+                <input type="text" name="Dhaka" class="form-control " placeholder="Enter book name..." id="bookInput">
+                <div class="input-group-append ">
+                    <button class="btn btn-outline-secondary button " type="button" id="search">Search</button>
+                </div>
+            </article>
+
+            <!-- Spin -->
+            <section class="spinner-border text-primary  mt-3" id="spin" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </section>
+        </section>
+         
+        <section class="container">
+            <!-- Error or Result number -->
+            <section id="error"></section>
+            <!--For Book List -->
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" id="Book-Div"> </div>
+        </section>
+
+
+
+        <script src="api.js"></script>
+    </section>
+</body>
+
+</html>
